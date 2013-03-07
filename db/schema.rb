@@ -11,7 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307061610) do
+ActiveRecord::Schema.define(:version => 20130307080240) do
+
+  create_table "areas", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "x_max"
+    t.integer  "y_max"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "seats", :force => true do |t|
+    t.integer  "area_id"
+    t.integer  "type_id"
+    t.integer  "state_id"
+    t.string   "name"
+    t.integer  "position"
+    t.integer  "x_position"
+    t.integer  "y_position"
+    t.integer  "customer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "seats", ["area_id"], :name => "index_seats_on_area_id"
+  add_index "seats", ["state_id"], :name => "index_seats_on_state_id"
+  add_index "seats", ["type_id"], :name => "index_seats_on_type_id"
+
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

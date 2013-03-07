@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @area.name
+p
+  strong Description:
+  = @area.description
+p
+  strong X max:
+  = @area.x_max
+p
+  strong Y max:
+  = @area.y_max
+
+= link_to 'Edit', edit_area_path(@area)
+'|
+= link_to 'Back', areas_path

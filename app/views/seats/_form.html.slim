@@ -1,0 +1,15 @@
+= simple_form_for(@seat) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :area
+    = f.association :type
+    = f.association :state
+    = f.input :name
+    = f.input :position
+    = f.input :x_position
+    = f.input :y_position
+    = f.input :customer_id
+
+  .form-actions
+    = f.button :submit

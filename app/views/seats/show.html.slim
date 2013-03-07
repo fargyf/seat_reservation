@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Area:
+  = @seat.area
+p
+  strong Type:
+  = @seat.type
+p
+  strong State:
+  = @seat.state
+p
+  strong Name:
+  = @seat.name
+p
+  strong Position:
+  = @seat.position
+p
+  strong X position:
+  = @seat.x_position
+p
+  strong Y position:
+  = @seat.y_position
+p
+  strong Customer:
+  = @seat.customer_id
+
+= link_to 'Edit', edit_seat_path(@seat)
+'|
+= link_to 'Back', seats_path
