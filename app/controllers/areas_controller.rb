@@ -2,7 +2,8 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
-    @areas = Area.all
+    @q = Area.search(params[:q])
+    @areas = @q.result.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

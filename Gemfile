@@ -13,6 +13,7 @@ gem "devise"
 gem "cancan"
 gem "rails-i18n"
 gem "devise-i18n"
+gem "ransack"
 gem 'acts_as_restful_list'
 
 group :assets do
