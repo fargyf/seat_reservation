@@ -1,15 +1,13 @@
 SeatReservation::Application.routes.draw do
-  resources :seats
-
+  resources :seats do
+    get 'map', :on => :collection
+  end
 
   resources :states
 
-
   resources :types
 
-
   resources :areas
-
 
   root :to => 'home#index'
 

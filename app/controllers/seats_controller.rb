@@ -12,6 +12,17 @@ class SeatsController < ApplicationController
     end
   end
 
+  def map
+    @q = Seat.search(params[:q])
+    @seats = @q.result
+    @seats = @seats.where(:area_id => params[:area_id]) if params[:area_id]
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @seats }
+    end
+  end
+
   # GET /seats/1
   # GET /seats/1.json
   def show

@@ -1,0 +1,17 @@
+#loader
+- @seats.each do |seat|
+  /*-if (seat.position-1) % seat.area.x_max == 0*/
+  #module_list
+    .modules
+      .m_title = seat.name
+      td = seat.try(:area).try(:name)
+      td = seat.try(:type).try(:name)
+      td = seat.try(:state).try(:name)
+      br
+      td = seat.position
+      br
+      = seat.coordinate
+
+
+- @seats.each do |seat|
+  td= seat.name + seat.coordinate
