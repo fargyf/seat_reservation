@@ -16,9 +16,9 @@ table
 
   - @seats.each do |seat|
     tr
-      td = seat.area
-      td = seat.type
-      td = seat.state
+      td = seat.try(:area).try(:name)
+      td = seat.try(:type).try(:name)
+      td = seat.try(:state).try(:name)
       td = seat.name
       td = seat.position
       td = seat.x_position

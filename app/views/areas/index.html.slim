@@ -4,8 +4,9 @@ table
   tr
     th Name
     th Description
-    th X max
-    th Y max
+    th X_max
+    th Y_max
+    th seats
     th
     th
     th
@@ -16,6 +17,7 @@ table
       td = area.description
       td = area.x_max
       td = area.y_max
+      td = link_to area.seats.size, seats_path(:area_id => area.id)
       td = link_to 'Show', area
       td = link_to 'Edit', edit_area_path(area)
       td = link_to 'Destroy', area, :confirm => 'Are you sure?', :method => :delete

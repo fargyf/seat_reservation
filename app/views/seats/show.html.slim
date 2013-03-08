@@ -2,13 +2,13 @@ p#notice = notice
 
 p
   strong Area:
-  = @seat.area
+  = @seat.try(:area).try(:name)
 p
   strong Type:
-  = @seat.type
+  = @seat.try(:type).try(:name)
 p
   strong State:
-  = @seat.state
+  = @seat.try(:state).try(:name)
 p
   strong Name:
   = @seat.name

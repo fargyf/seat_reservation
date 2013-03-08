@@ -3,6 +3,7 @@ class SeatsController < ApplicationController
   # GET /seats.json
   def index
     @seats = Seat.all
+    @seats = @seats.where(:area_id => params[:area_id]) if params[:area_id]
 
     respond_to do |format|
       format.html # index.html.erb
