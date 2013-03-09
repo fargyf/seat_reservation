@@ -1,17 +1,14 @@
+- x_max = @seats.first.area.x_max
+- y_max = @seats.first.area.y_max
+
 #loader
-- @seats.each do |seat|
-  /*-if (seat.position-1) % seat.area.x_max == 0*/
-  #module_list
-    .modules
-      .m_title = seat.name
-      td = seat.try(:area).try(:name)
-      td = seat.try(:type).try(:name)
-      td = seat.try(:state).try(:name)
-      br
-      td = seat.position
-      br
-      = seat.coordinate
+#seats
+  = atlas x_max, y_max, @seats do |seat|
+    #module_list
+      .modules
+        .m_title= seat.try(:name)
+        br
+        = seat.try(:coordinate)
+        br
+        = seat.try(:position)
 
-
-- @seats.each do |seat|
-  td= seat.name + seat.coordinate
