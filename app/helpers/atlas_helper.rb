@@ -27,11 +27,13 @@ module AtlasHelper
     end
 
     def arraies
-      rows.map do |row|
-        content_tag :tr do
-          row.map { |cell| body_cell(cell) }.join.html_safe
-        end
-      end.join.html_safe
+      content_tag :tbody, id: 'sortable-items' do
+        rows.map do |row|
+          content_tag :tr do
+            row.map { |cell| body_cell(cell) }.join.html_safe
+          end
+        end.join.html_safe
+      end
     end
 
     def body_cell(cell)

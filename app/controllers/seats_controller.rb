@@ -23,6 +23,11 @@ class SeatsController < ApplicationController
     end
   end
 
+  def sort
+    Seat.sort params[:seat]
+    render :nothing => true
+  end
+
   # GET /seats/1
   # GET /seats/1.json
   def show

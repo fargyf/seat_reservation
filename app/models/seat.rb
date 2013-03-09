@@ -18,9 +18,18 @@ class Seat < ActiveRecord::Base
   #end
   #private :update_x_position_and_y_position
 
+  # instance methods
   def coordinate
     x = ((position-1) / area.x_max) + 1
     y = position - (x-1) * area.x_max
     "(#{x}, #{y})"
+  end
+
+  def self.sort(ids)
+    Seat.transaction do
+      ids.each_with_index do |id, index|
+        Seat.update_all(['position=?', index + 1], ['id=?', id])
+      end
+    end
   end
 end

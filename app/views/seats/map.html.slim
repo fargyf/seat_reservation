@@ -1,7 +1,7 @@
 - x_max = @seats.first.area.x_max
 - y_max = @seats.first.area.y_max
 
-#loader
+/*#loader*/
 #seats
   = atlas x_max, y_max, @seats do |seat|
     #module_list
@@ -10,5 +10,5 @@
         br
         = seat.try(:coordinate)
         br
-        = seat.try(:position)
+        .position= seat.try(:position)
 

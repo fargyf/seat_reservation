@@ -1,6 +1,7 @@
 SeatReservation::Application.routes.draw do
   resources :seats do
     get 'map', :on => :collection
+    post 'sort', :on => :collection
   end
 
   resources :states
