@@ -1,14 +1,17 @@
-- x_max = @seats.first.area.x_max
-- y_max = @seats.first.area.y_max
+- x_max = @seats.first.try(:area).try(:x_max) || 1
+- y_max = @seats.first.try(:area).try(:y_max) || 1
 
 /*#loader*/
 #seats
   = atlas x_max, y_max, @seats do |seat|
     #module_list
-      .modules
-        .m_title= seat.try(:name)
+      .modules id=seat_warning(seat)
+        .m_title= link_to seat.try(:name), edit_seat_path(seat)
         br
         = seat.try(:coordinate)
+        = seat.try(:type).try(:name)
         br
-        .position= seat.try(:position)
+        = seat.try(:state).try(:name)
+        /*br*/
+        /*.position= seat.try(:position)*/
 

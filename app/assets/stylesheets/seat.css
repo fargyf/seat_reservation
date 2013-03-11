@@ -1,4 +1,63 @@
-#module_list{margin-left:4px}
-.modules{float:left; width:80px; height:80px; margin:0px; border:1px solid #acc6e9; background:#e8f5fe}
-.m_title{height:20px; line-height:20px; background:#afc6e9}
-#loader{height:20px; text-align:center}
+#module_list{
+  margin-left:0px;
+}
+
+.modules{
+  float:left;
+  width:80px;
+  height:80px;
+  margin:0px;
+  border:1px solid #acc6e9;
+  /*background:#e8f5fe;*/
+}
+
+.m_title{
+  height:20px;
+  line-height:20px;
+  background:#f5f5f5;
+}
+
+#loader{
+  height:20px;
+  text-align:center
+}
+
+#lvhua {
+  background: green;
+}
+
+#gonglu {
+  background: #A49B7A;
+}
+
+#bukeshou {
+  background: grey;
+}
+
+#keshou {
+  background: none;
+}
+
+#yuding {
+  background: #FFDFA8;
+}
+
+#qiatan {
+  background: #FF884D;
+}
+
+#shigong {
+  background: #5C5CF0;
+}
+
+#yanshou {
+  background: yellow;
+}
+
+#tongzhikehu {
+  background: #9C7AD2;
+}
+
+#jieshu {
+  background: #00A449;
+}

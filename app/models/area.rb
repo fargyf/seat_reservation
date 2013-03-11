@@ -17,6 +17,6 @@ class Area < ActiveRecord::Base
 
   # instance methods
   def create_default_seats
-    (x_max * y_max).times{ |n| seats.create!([{:type=> Type.first, :name => "seat_#{n}", :state => State.first}])}
+    (x_max * y_max).times{ |n| seats.create!([{:type=> Type.mudi, :name => "seat_#{n + 1}", :state => State.keshou}])}
   end
 end
