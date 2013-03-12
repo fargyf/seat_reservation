@@ -78,7 +78,7 @@ class SeatsController < ApplicationController
 
     respond_to do |format|
       if @seat.update_attributes(params[:seat])
-        format.html { redirect_to @seat, notice: 'Seat was successfully updated.' }
+        format.html { redirect_to map_seats_path(:area_id => @seat.try(:area).try(:id)), notice: 'Seat was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

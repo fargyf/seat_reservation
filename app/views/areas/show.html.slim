@@ -1,18 +1,27 @@
-p#notice = notice
+- model_class = Area
+div class="page-header"
+  h1=t '.title', :default => model_class.model_name.human
 
 p
-  strong Name:
+  strong= model_class.human_attribute_name(:name) + ':'
+  br
   = @area.name
 p
-  strong Description:
+  strong= model_class.human_attribute_name(:description) + ':'
+  br
   = @area.description
 p
-  strong X max:
+  strong= model_class.human_attribute_name(:x_max) + ':'
+  br
   = @area.x_max
 p
-  strong Y max:
+  strong= model_class.human_attribute_name(:y_max) + ':'
+  br
   = @area.y_max
 
-= link_to 'Edit', edit_area_path(@area)
-'|
-= link_to 'Back', areas_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), areas_path, :class => 'btn'
+  '
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_area_path(@area), :class => 'btn'
+  '
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), area_path(@area), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

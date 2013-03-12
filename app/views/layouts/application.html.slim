@@ -21,21 +21,10 @@ html lang="zh"
     = render 'common/menu'
 
     .container
+      = bootstrap_flash
+      = yield
 
-      .row
-        .span2
-          .well.sidebar-nav
-            ul.nav.nav-list
-              li.nav-header Sidebar
-              li= link_to "area", areas_path
-              li= link_to "seat", seats_path
-              li= link_to "seat_map", map_seats_path
-              li= link_to "type", types_path
-              li= link_to "state", states_path
-        .span10
-          = bootstrap_flash
-          = yield
-
+      hr
       footer
         p &copy; Company 2013
     /!
