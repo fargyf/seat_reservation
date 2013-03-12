@@ -1,8 +1,4 @@
-h1 Editing seat
-
-== render 'form'
-
-= link_to 'Show', @seat
-'|
-= link_to 'Back', seats_path
-
+- model_class = Seat
+div class="page-header"
+  h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human
+= render :partial => "form"

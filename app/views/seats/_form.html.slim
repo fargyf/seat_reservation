@@ -1,15 +1,15 @@
-= simple_form_for(@seat) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.association :area
-    = f.association :type
-    = f.association :state
-    = f.input :name
-    = f.input :position
-    = f.input :x_position
-    = f.input :y_position
-    = f.input :customer_id
-
+= simple_form_for @seat, :html => { :class => "form-horizontal" } do |f|
+  = f.association :area
+  = f.association :type
+  = f.association :state
+  = f.input :name
+  = f.input :position
+  = f.input :x_position
+  = f.input :y_position
+  = f.input :customer_id
   .form-actions
-    = f.button :submit
+    = f.button :submit, :class => 'btn-primary'
+    '
+    = link_to t('.destroy'), @seat, :confirm => t("helpers.links.confirm", :default => 'Are you sure?'), :method => :delete, :class => 'btn btn-danger'
+    '
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), map_seats_path(:area_id => @seat.area.id), :class => 'btn' if @seat.area

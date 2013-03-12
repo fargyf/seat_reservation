@@ -1,0 +1,14 @@
+zh-CN:
+  type:
+    mudi: 墓地
+    lvhua: 绿化
+    gonglu: 公路
+  state:
+    bukeshou: 建成不可售
+    keshou: 建成可售
+    yuding: 预订
+    qiatan: 洽谈
+    shigong: 施工
+    yanshou: 工程验收
+    tongzhikehu: 通知客户
+    jieshu: 业务结束

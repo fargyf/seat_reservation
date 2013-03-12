@@ -1,9 +1,7 @@
-= simple_form_for(@state) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :name
-    = f.input :description
-
+= simple_form_for @state, :html => { :class => "form-horizontal" } do |f|
+  = f.input :name
+  = f.input :description
   .form-actions
-    = f.button :submit
+    = f.button :submit, :class => 'btn-primary'
+    '
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), states_path, :class => 'btn'
