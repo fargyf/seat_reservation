@@ -23,7 +23,9 @@
       = atlas x_max, y_max, @seats do |seat|
         #module_list
           .modules id=seat_warning(seat)
-            .m_title= link_to seat.try(:name), edit_seat_path(seat)
+            /*.m_title= link_to seat.try(:name), edit_seat_path(seat)*/
+            br
+            = link_to seat.try(:name), edit_seat_path(seat)
             br
             /*= seat.try(:coordinate)*/
             /*= seat.try(:type).try(:name)*/
