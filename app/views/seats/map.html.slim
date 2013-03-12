@@ -1,17 +1,34 @@
 - x_max = @seats.first.try(:area).try(:x_max) || 1
 - y_max = @seats.first.try(:area).try(:y_max) || 1
 
-/*#loader*/
-#seats
-  = atlas x_max, y_max, @seats do |seat|
-    #module_list
-      .modules id=seat_warning(seat)
-        .m_title= link_to seat.try(:name), edit_seat_path(seat)
-        br
-        = seat.try(:coordinate)
-        = seat.try(:type).try(:name)
-        br
-        = seat.try(:state).try(:name)
-        /*br*/
-        /*.position= seat.try(:position)*/
+.row
+  .span2
+    .well.sidebar-nav
+      ul.nav.nav-list
+        li.nav-header 位置类型
+        li#lvhua 绿化
+        li#gonglu 公路
+        li.nav-header 墓地状态
+        li#bukeshou 建成不可售
+        li#keshou 建成可售
+        li#yuding 预订
+        li#qiatan 洽谈
+        li#shigong 施工
+        li#yanshou 工程验收
+        li#tongzhikehu 通知客户
+        li#jieshu 业务结束
+  .span10
+    /*#loader*/
+    #seats
+      = atlas x_max, y_max, @seats do |seat|
+        #module_list
+          .modules id=seat_warning(seat)
+            .m_title= link_to seat.try(:name), edit_seat_path(seat)
+            br
+            = seat.try(:coordinate)
+            = seat.try(:type).try(:name)
+            br
+            = seat.try(:state).try(:name)
+            /*br*/
+            /*.position= seat.try(:position)*/
 
