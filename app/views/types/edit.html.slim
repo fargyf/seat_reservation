@@ -1,8 +1,4 @@
-h1 Editing type
-
-== render 'form'
-
-= link_to 'Show', @type
-'|
-= link_to 'Back', types_path
-
+- model_class = Type
+div class="page-header"
+  h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human
+= render :partial => "form"

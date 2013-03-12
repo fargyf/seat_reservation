@@ -25,9 +25,9 @@
           .modules id=seat_warning(seat)
             .m_title= link_to seat.try(:name), edit_seat_path(seat)
             br
-            = seat.try(:coordinate)
-            = seat.try(:type).try(:name)
-            br
+            /*= seat.try(:coordinate)*/
+            /*= seat.try(:type).try(:name)*/
+            /*br*/
             = seat.try(:state).try(:name)
             /*br*/
             /*.position= seat.try(:position)*/

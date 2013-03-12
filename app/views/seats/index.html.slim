@@ -1,33 +1,37 @@
-h1 Listing seats
-
-table
-  tr
-    th Area
-    th Type
-    th State
-    th Name
-    th Position
-    th X position
-    th Y position
-    th Customer
-    th
-    th
-    th
-
-  - @seats.each do |seat|
+- model_class = Seat
+div class="page-header"
+  h1=t '.title', :default => model_class.model_name.human.pluralize
+table class="table table-striped"
+  thead
     tr
-      td = seat.try(:area).try(:name)
-      td = seat.try(:type).try(:name)
-      td = seat.try(:state).try(:name)
-      td = seat.name
-      td = seat.position
-      td = seat.x_position
-      td = seat.y_position
-      td = seat.customer_id
-      td = link_to 'Show', seat
-      td = link_to 'Edit', edit_seat_path(seat)
-      td = link_to 'Destroy', seat, :confirm => 'Are you sure?', :method => :delete
+      th= model_class.human_attribute_name(:id)
+      th= model_class.human_attribute_name(:area_id)
+      th= model_class.human_attribute_name(:type_id)
+      th= model_class.human_attribute_name(:state_id)
+      th= model_class.human_attribute_name(:name)
+      th= model_class.human_attribute_name(:position)
+      th= model_class.human_attribute_name(:x_position)
+      th= model_class.human_attribute_name(:y_position)
+      th= model_class.human_attribute_name(:customer_id)
+      th= model_class.human_attribute_name(:created_at)
+      th=t '.actions', :default => t("helpers.actions")
+  tbody
+    - @seats.each do |seat|
+      tr
+        td= link_to seat.id, seat_path(seat)
+        td= seat.area_id
+        td= seat.type_id
+        td= seat.state_id
+        td= seat.name
+        td= seat.position
+        td= seat.x_position
+        td= seat.y_position
+        td= seat.customer_id
+        td=l seat.created_at
+        td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_seat_path(seat), :class => 'btn btn-mini'
+          '
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), seat_path(seat), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-br
+= link_to t('.new', :default => t("helpers.links.new")), new_seat_path, :class => 'btn btn-primary'
 
-= link_to 'New Seat', new_seat_path
