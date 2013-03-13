@@ -14,7 +14,7 @@ class SeatsController < ApplicationController
 
   def map
     @q = Seat.search(params[:q])
-    @seats = @q.result.includes([:area])
+    @seats = @q.result.includes([:area, :type, :state])
     @seats = @seats.where(:area_id => params[:area_id]) if params[:area_id]
 
     respond_to do |format|
