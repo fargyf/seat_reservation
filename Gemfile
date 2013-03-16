@@ -15,6 +15,7 @@ gem "rails-i18n"
 gem "devise-i18n"
 gem "ransack"
 gem 'acts_as_restful_list'
+gem "pdfkit"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

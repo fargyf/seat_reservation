@@ -1,5 +1,7 @@
-- x_max = @seats.first.try(:area).try(:x_max) || 1
-- y_max = @seats.first.try(:area).try(:y_max) || 1
+- x_max = @area.try(:x_max) || 1
+- y_max = @area.try(:y_max) || 1
+
+h2.text-center= @area.name
 
 .row
   .span2
