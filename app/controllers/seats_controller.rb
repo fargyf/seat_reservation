@@ -3,7 +3,7 @@ class SeatsController < ApplicationController
   # GET /seats.json
   def index
     @q = Seat.search(params[:q])
-    @seats = @q.result.page(params[:page])
+    @seats = @q.result.includes([:area, :type, :state]).page(params[:page])
     @seats = @seats.where(:area_id => params[:area_id]) if params[:area_id]
 
     respond_to do |format|
