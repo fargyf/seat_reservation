@@ -16,6 +16,7 @@ gem "devise-i18n"
 gem "ransack"
 gem 'acts_as_restful_list'
 gem "pdfkit"
+gem 'wkhtmltopdf-binary', "~> 0.9.9.1"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
