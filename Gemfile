@@ -15,17 +15,20 @@ gem "rails-i18n"
 gem "devise-i18n"
 gem "ransack"
 gem 'acts_as_restful_list'
+gem "pdfkit"
+gem 'wkhtmltopdf-binary', "~> 0.9.9.1"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'bootstrap-sass', '~> 2.3.0.1'
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem 'uglifier', '>= 1.0.3'
   gem "turbo-sprockets-rails3"
   gem 'therubyracer', :platforms => :ruby
-  gem "less-rails"
-  gem "twitter-bootstrap-rails"
+  #gem "less-rails"
+  #gem "twitter-bootstrap-rails"
 end
 
 group :development, :test do

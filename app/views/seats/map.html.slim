@@ -1,5 +1,7 @@
-- x_max = @seats.first.try(:area).try(:x_max) || 1
-- y_max = @seats.first.try(:area).try(:y_max) || 1
+- x_max = @area.try(:x_max) || 1
+- y_max = @area.try(:y_max) || 1
+
+h2.text-center= @area.name
 
 .row
   .span2
@@ -23,7 +25,9 @@
       = atlas x_max, y_max, @seats do |seat|
         #module_list
           .modules id=seat_warning(seat)
-            .m_title= link_to seat.try(:name), edit_seat_path(seat)
+            /*.m_title= link_to seat.try(:name), edit_seat_path(seat)*/
+            br
+            = link_to seat.try(:name), edit_seat_path(seat)
             br
             /*= seat.try(:coordinate)*/
             /*= seat.try(:type).try(:name)*/
