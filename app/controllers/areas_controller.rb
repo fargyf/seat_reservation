@@ -19,6 +19,16 @@ class AreasController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @area }
+      #format.pdf { render :text => PDFKit.new( area_url(@area) ).to_pdf }
+      #format.pdf do
+        #html = area_url(@area)
+        #@pdf = PDFKit.new(html, page_size: 'Letter')
+        ##@pdf.stylesheets << "#{Rails.root}/app/assets/stylesheets/models/_print.css.scss"
+        #send_data @pdf.to_pdf,
+            #:filename => 'whatever.pdf',
+            #:type => 'application/pdf',
+            #:disposition => 'attachment'
+      #end
     end
   end
 

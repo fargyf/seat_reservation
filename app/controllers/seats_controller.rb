@@ -3,7 +3,7 @@ class SeatsController < ApplicationController
   # GET /seats.json
   def index
     @q = Seat.search(params[:q])
-    @seats = @q.result.page(params[:page])
+    @seats = @q.result.includes([:area, :type, :state]).page(params[:page])
     @seats = @seats.where(:area_id => params[:area_id]) if params[:area_id]
 
     respond_to do |format|
@@ -13,9 +13,8 @@ class SeatsController < ApplicationController
   end
 
   def map
-    @q = Seat.search(params[:q])
-    @seats = @q.result.includes([:area])
-    @seats = @seats.where(:area_id => params[:area_id]) if params[:area_id]
+    @area = Area.select([:id, :name, :x_max, :y_max]).find(params[:area_id])
+    @seats = Seat.where(:area_id => @area.id).includes([:type, :state])
 
     respond_to do |format|
       format.html # index.html.erb
